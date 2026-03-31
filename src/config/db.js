@@ -1,1 +1,2 @@
-// db setup for project
+//Database Configuration
+ 
