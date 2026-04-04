@@ -1,12 +1,17 @@
- const { City } = require('../models/index');
+ const e = require('express');
+const { City } = require('../models/index');
+const { where } = require('sequelize');
 
  
  class CityRepository{
         async createCity({ name }){
             try {
-                const city = await City.create();
+                const city = await City.create({
+                    name
+                });
                 return city;    
             } catch (error) {
+                console.log("Something went wrong in the repository layer");
                 throw {error};
             }
         }
@@ -20,8 +25,37 @@
             })
             } catch (error) {
                 throw {error};
+                console.log("Something went wrong in the repository layer");
             }
         }
+
+        async updateCity(cityId, { data }){
+            try {
+                const city = await city.update(data,{
+                where : {
+                    id : cityId
+                }
+                })
+                return  city;
+                
+            } catch (error) {
+                console.log("Something went wrong in the repository layer");
+                throw {error};
+            }
+        }
+
+        async getCity(cityId){
+            try {
+                const city = await city.findByPK(cityId);
+                return city;
+                
+            } catch (error) {
+                console.log("Something went wrong in the repository layer");
+                throw {error};
+            }
+        }
+
+
  }
 
  module.exports = CityRepository ;
