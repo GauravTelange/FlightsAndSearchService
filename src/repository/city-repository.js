@@ -19,10 +19,11 @@ const { where } = require('sequelize');
         async deleteCity(cityId){
             try {
                 await  City.destroy({
-                where : {
-                    id : cityId
-                }
-            })
+                    where : {
+                        id : cityId
+                    }
+                });
+                return true;
             } catch (error) {
                 throw {error};
                 console.log("Something went wrong in the repository layer");
