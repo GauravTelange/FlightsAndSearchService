@@ -1,5 +1,5 @@
 const { response } = require('express');
-const { CityService, CityService } =  require('../services/index');
+const { CityService } =  require('../services/index');
 
 const cityService = new CityService();
 
@@ -71,7 +71,7 @@ const update = async(req, res) =>  {
     } catch (error) {
             console.log(error);
             return res.status(500).json({
-                data: {} ,
+                 data: {} ,
                 succes: false ,
                 message: "Not able to update the city",
                 err: error  
