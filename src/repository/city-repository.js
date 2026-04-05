@@ -1,4 +1,4 @@
- const e = require('express');
+ const express = require('express');
 const { City } = require('../models/index');
 const { where } = require('sequelize');
 
@@ -32,7 +32,7 @@ const { where } = require('sequelize');
 
         async updateCity(cityId, { data }){
             try {
-                const city = await city.update(data,{
+                const city = await City.update(data,{
                 where : {
                     id : cityId
                 }
@@ -47,7 +47,7 @@ const { where } = require('sequelize');
 
         async getCity(cityId){
             try {
-                const city = await city.findByPK(cityId);
+                const city = await City.findByPK(cityId);
                 return city;
                 
             } catch (error) {
