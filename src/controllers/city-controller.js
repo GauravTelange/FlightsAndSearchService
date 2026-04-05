@@ -1,6 +1,4 @@
-const { response } = require('express');
 const { CityService } =  require('../services/index');
-
 const cityService = new CityService();
 
 const create = async(req, res) =>  {
@@ -8,7 +6,7 @@ const create = async(req, res) =>  {
         const city =  await cityService.createCity(req.body);
         return res.status(201).json({
             data: city ,
-            succes: true ,
+            success: true ,
             message: "Succesfully created a city",
             err: {}
         });
@@ -28,7 +26,7 @@ const destroy = async(req, res) =>  {
      try {
           const city =  await cityService.deleteCity(req.params.id);
         return res.status(200).json({
-            data: city , //change from response => city
+            data: response ,
             success: true ,
             message: "Succesfully deleted a city",
             err: {}
