@@ -16,7 +16,7 @@ const create = async(req, res) =>  {
             console.log(error);
             return res.status(500).json({
                 data: {} ,
-                succes: false ,
+                success: false ,
                 message: "Not able to create a class",
                 err: error  
                 
@@ -28,8 +28,8 @@ const destroy = async(req, res) =>  {
      try {
           const city =  await cityService.deleteCity(req.params.id);
         return res.status(200).json({
-            data: response ,
-            succes: true ,
+            data: city , //change from response => city
+            success: true ,
             message: "Succesfully deleted a city",
             err: {}
         });
@@ -43,7 +43,7 @@ const get = async(req, res) =>  {
         const city =  await cityService.getCity(req.params.id);
         return res.status(200).json({
             data: response ,
-            succes: true ,
+            success: true ,
             message: "Succesfully fetched a city",
             err: {}
         });
@@ -64,7 +64,7 @@ const update = async(req, res) =>  {
         const city =  await cityService.updateCity(req.params.id,req.body);
         return res.status(200).json({
             data: response ,
-            succes: true ,
+            success: true ,
             message: "Succesfully updated a city",
             err: {}
         });
@@ -72,7 +72,7 @@ const update = async(req, res) =>  {
             console.log(error);
             return res.status(500).json({
                  data: {} ,
-                succes: false ,
+                success: false ,
                 message: "Not able to update the city",
                 err: error  
                 
