@@ -30,13 +30,21 @@ const { where } = require('sequelize');
             }
         }
 
-        async updateCity(cityId, { data }){
+        async updateCity(cityId,  data ){
             try {
-                const city = await City.update(data,{
-                where : {
-                    id : cityId
-                }
-                })
+
+                // the commented approach return number of rows affected.
+                // const city = City.update(
+                //   data, {
+                //   where : {id : cityId}
+                //   }
+                // );
+                // return city;
+
+                // below appraoch returns updated object.
+                const city = await City.findByPk(cityId);
+                city.name = data.name;
+                await city.save();  
                 return  city;
                 
             } catch (error) {
