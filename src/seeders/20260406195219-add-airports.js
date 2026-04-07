@@ -24,19 +24,19 @@ module.exports = {
       },
       {
         name: 'JFK Airport',
-        cityId: 2,
+        cityId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Indira Gandhi International Airport',
-        cityId: 3,
+        cityId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Heathrow Airport',
-        cityId: 4,
+        cityId: 2,
         createdAt: new Date(),
         updatedAt: new Date() 
       }
