@@ -23,14 +23,14 @@ const setupandAndStartServer = async () =>  {
     app.listen(PORT, async ()  => {
         console.log(`Server Started with Port ${PORT}`);
         // console.log(process.env);
-        if(process.env.SYNC_DB) {
-            await db.sequelize.sync({ alter: true });
+        // if(process.env.SYNC_DB) {
+        //     await db.sequelize.sync({ alter: true });
             
-        }
-        await Airplane.create({
-            modelNumber: 'VIshjit 420',
+        // }
+        // await Airplane.create({
+        //     modelNumber: 'VIshjit 420',
             
-        });
+        // });
 
 
         
